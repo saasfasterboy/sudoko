@@ -1,42 +1,41 @@
-Sudoku Solver
+Sudoku Project README
 Overview
-This repository contains a Python implementation of a Sudoku solver. The solution uses a backtracking algorithm to efficiently solve a given Sudoku puzzle represented by a 9x9 board.
+This project consists of two main components: a Sudoku puzzle generator that creates Sudoku puzzles of various difficulty levels and a Sudoku solver that can solve any valid Sudoku puzzle.
 
-Features
-Solves any valid 9x9 Sudoku puzzle.
-Utilizes a backtracking approach to explore possible placements of numbers.
-Efficiently tracks which numbers are already used in each row, column, and 3x3 box to avoid conflicts.
-Code Implementation
-The main class Solution includes a method solveSudoku that modifies the input board in place and returns the solved board.
+Components
+1. Sudoku Puzzle Generator
+The Sudoku puzzle generator creates Sudoku boards and removes numbers to create puzzles with varying difficulty. It generates valid Sudoku puzzles and supports difficulty levels such as Easy, Medium, Hard, and Extreme.
 
-Example
-To test the solution, use the following input for a challenging Sudoku puzzle:
-
+Code Example for Generator
 python
 Copy code
-input_board = [
-    ['8', '.', '.', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '3', '6', '.', '.', '.', '.', '.'],
-    ['.', '7', '.', '.', '9', '.', '2', '.', '.'],
-    ['.', '5', '.', '.', '.', '7', '.', '.', '.'],
-    ['.', '.', '.', '.', '4', '5', '7', '.', '.'],
-    ['.', '.', '.', '1', '.', '.', '.', '3', '.'],
-    ['.', '.', '1', '.', '.', '.', '.', '6', '8'],
-    ['.', '.', '8', '5', '.', '.', '.', '1', '.'],
-    ['.', '9', '.', '.', '.', '.', '4', '.', '.']
-]
+import random
 
-solution = Solution()
-solved_board = solution.solveSudoku(input_board)
+class SudokuGenerator:
+    # Class implementation for generating Sudoku puzzles
+2. Sudoku Solver
+The Sudoku solver takes a partially filled Sudoku board and solves it using a backtracking algorithm. It can solve Sudoku puzzles of any configuration.
 
-# Print the solved board
-for row in solved_board:
-    print(' '.join(row))
-How to Use
-Clone this repository.
-Run the Python script.
-The output will display the solved Sudoku board in the console.
-Dependencies
-Python 3.x
-Contributing
-Feel free to submit issues and pull requests. Your contributions are welcome!
+Code Example for Solver
+python
+Copy code
+from typing import List
+
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        # Method implementation for solving Sudoku puzzles
+Installation
+To run this project, ensure you have Python installed. Clone the repository and install any required libraries.
+
+Running the Code
+Generate Sudoku Puzzles
+Instantiate the SudokuGenerator class, call the fill_board() method, and then use remove_numbers() to create a puzzle of the desired difficulty level.
+
+Solve Sudoku Puzzles
+Create an instance of the Solution class and call the solveSudoku() method, passing in a 2D list representing the Sudoku board.
+
+Example
+Generate an extreme Sudoku puzzle and then solve it using the respective classes.
+
+Conclusion
+This project provides a functional Sudoku puzzle generator and solver that can be extended or modified for additional features.
